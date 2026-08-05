@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Política de privacidad — nettools</title>
+<style>
+  :root {
+    --bg: #ffffff;
+    --fg: #1f2328;
+    --muted: #59636e;
+    --border: #d1d9e0;
+    --accent: #0969da;
+    --surface: #f6f8fa;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #0d1117;
+      --fg: #e6edf3;
+      --muted: #9198a1;
+      --border: #3d444d;
+      --accent: #4493f8;
+      --surface: #151b23;
+    }
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    padding: 2.5rem 1.25rem 4rem;
+    background: var(--bg);
+    color: var(--fg);
+    font: 16px/1.65 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+  main { max-width: 46rem; margin: 0 auto; }
+  h1 { font-size: 1.9rem; line-height: 1.25; margin: 0 0 .5rem; }
+  h2 { font-size: 1.3rem; margin: 2.25rem 0 .75rem; padding-bottom: .3rem; border-bottom: 1px solid var(--border); }
+  .updated { color: var(--muted); font-size: .925rem; margin: 0 0 2rem; }
+  a { color: var(--accent); }
+  ul { padding-left: 1.4rem; }
+  li { margin: .35rem 0; }
+  .table-wrap { overflow-x: auto; margin: 1rem 0; }
+  table { border-collapse: collapse; width: 100%; min-width: 34rem; font-size: .925rem; }
+  th, td { border: 1px solid var(--border); padding: .6rem .7rem; text-align: left; vertical-align: top; }
+  th { background: var(--surface); font-weight: 600; }
+  code { background: var(--surface); padding: .1rem .35rem; border-radius: 4px; font-size: .875em; }
+  footer { margin-top: 3rem; padding-top: 1.25rem; border-top: 1px solid var(--border); color: var(--muted); font-size: .9rem; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Política de privacidad de nettools</h1>
+  <p class="updated">Última actualización: 5 de agosto de 2026</p>
+
+  <p>Esta política describe cómo la app <strong>nettools</strong> (paquete <code>com.nettools.app</code>) maneja los datos de sus usuarios.</p>
+
+  <h2>Resumen</h2>
+  <p>nettools no tiene servidores propios, no requiere cuenta ni registro, y no recolecta ni almacena datos personales de sus usuarios. Es una herramienta de diagnóstico de red: cuando usás una función (ping, traceroute, escaneo de puertos, DNS, verificación SSL, WHOIS, chequeo HTTP), tu dispositivo se conecta <strong>directamente</strong> al host o dominio que vos ingresás — el desarrollador de la app no ve, recibe ni almacena esos resultados en ningún momento.</p>
+
+  <h2>Datos que la app accede en tu dispositivo</h2>
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>Dato</th><th>Para qué se usa</th><th>¿Se envía a algún servidor del desarrollador?</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Estado de la conexión de red (tipo, IP local, gateway, DNS)</td>
+          <td>Mostrarlo en la pantalla «Network Info»</td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <td>Información de la red WiFi actual (SSID, BSSID, señal)</td>
+          <td>Mostrarlo en la pantalla «WiFi Info»</td>
+          <td>No</td>
+        </tr>
+        <tr>
+          <td>Ubicación aproximada/precisa (permiso <code>ACCESS_FINE_LOCATION</code>)</td>
+          <td><strong>Únicamente</strong> porque Android exige este permiso desde la versión 8.1 para poder leer el SSID/BSSID real de la red WiFi conectada. La app <strong>no</strong> usa GPS, no calcula ni almacena tu ubicación geográfica, y no comparte este dato con nadie.</td>
+          <td>No</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Conexiones de red que hace la app</h2>
+  <p>Las herramientas de diagnóstico conectan tu dispositivo directamente con:</p>
+  <ul>
+    <li>El host o dominio que vos escribís (ping, traceroute, escaneo de puertos, DNS, WHOIS, verificación SSL, chequeo HTTP)</li>
+    <li><strong>Cloudflare</strong> (<code>speed.cloudflare.com</code>), para el test de ancho de banda — sujeto a la <a href="https://www.cloudflare.com/privacypolicy/">política de privacidad de Cloudflare</a></li>
+    <li>Servidores de <strong>IANA</strong> y los registros WHOIS correspondientes, para la herramienta WHOIS</li>
+  </ul>
+  <p>Ninguna de estas conexiones pasa por infraestructura del desarrollador de nettools.</p>
+
+  <h2>Publicidad</h2>
+  <p>nettools muestra anuncios en banner a través de <strong>Google AdMob</strong>. AdMob puede recolectar identificadores de publicidad y datos de uso conforme a sus propias políticas:</p>
+  <ul>
+    <li><a href="https://policies.google.com/privacy">Política de privacidad de Google</a></li>
+    <li><a href="https://support.google.com/admob/answer/6128543">Cómo funciona la publicidad de Google AdMob</a></li>
+  </ul>
+  <p>No mostramos anuncios intersticiales entre acciones — solo un banner fijo en la parte inferior de cada pantalla.</p>
+
+  <h2>Menores de edad</h2>
+  <p>nettools no está dirigida a menores de 13 años y no recolecta a sabiendas información de menores.</p>
+
+  <h2>Seguridad</h2>
+  <p>Como la app no transmite ni almacena datos personales en servidores propios, no existe una base de datos centralizada que proteger. Los permisos se usan localmente, en tiempo real, mientras usás cada herramienta.</p>
+
+  <h2>Cambios a esta política</h2>
+  <p>Si esta política cambia, la fecha de «Última actualización» en la parte superior de este documento se actualizará.</p>
+
+  <h2>Contacto</h2>
+  <p>Para preguntas sobre esta política, escribí a: <a href="mailto:n7.administrator@gmail.com">n7.administrator@gmail.com</a></p>
+
+  <footer>nettools — <code>com.nettools.app</code></footer>
+</main>
+</body>
+</html>
